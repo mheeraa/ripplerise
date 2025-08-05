@@ -38,7 +38,7 @@ function CreatePage() {
     }
 
     try {
-        const res = await fetch("http://localhost:5000/api/events", {
+        const res = await fetch("/api/events", {
           method: "POST",
           headers: getHeaders(), // NEW: Use the getHeaders function
           body: JSON.stringify(form)

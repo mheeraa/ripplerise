@@ -20,7 +20,7 @@ function ProfilePage({ user, onLogin }) {
             return;
         }
         try {
-            const res = await fetch('http://localhost:5000/api/users/profile', {
+            const res = await fetch('/api/users/profile', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
@@ -61,7 +61,7 @@ function ProfilePage({ user, onLogin }) {
         setIsError(false);
 
         try {
-            const res = await fetch('http://localhost:5000/api/users/profile', {
+            const res = await fetch('/api/users/profile', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
