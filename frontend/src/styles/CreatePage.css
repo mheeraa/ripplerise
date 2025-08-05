@@ -1,0 +1,49 @@
+.create-page {
+  padding: 2rem;
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--color-accent-dark);
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--color-text-primary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: var(--color-accent-dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
