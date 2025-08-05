@@ -12,18 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve(); 
 
-// Middleware (CORRECT ORDER)
-// 1. First, enable CORS
 app.use(cors()); 
-// 2. Second, enable JSON body parsing
 app.use(express.json()); 
-
-// API Routes (Defined after middleware)
 app.use("/api/events", eventRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
-// Serve frontend in production
 if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")));
     app.get("/*any", (req, res) => {
@@ -35,7 +29,6 @@ if(process.env.NODE_ENV === "production") {
     });
 }
 
-// Global Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');

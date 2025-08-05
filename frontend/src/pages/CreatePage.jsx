@@ -10,10 +10,8 @@ function CreatePage() {
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
 
-  // NEW: Get the token from localStorage
   const token = localStorage.getItem("userToken");
   
-  // A helper function to get the headers, including Authorization if a token exists
   const getHeaders = (contentType = 'application/json') => {
     return {
       'Content-Type': contentType,
@@ -30,7 +28,6 @@ function CreatePage() {
     setMessage(null);
     setIsError(false);
 
-    // Make sure a user is logged in before trying to create an event
     if (!token) {
         setMessage("You must be logged in to create an event.");
         setIsError(true);
@@ -40,7 +37,7 @@ function CreatePage() {
     try {
         const res = await fetch("/api/events", {
           method: "POST",
-          headers: getHeaders(), // NEW: Use the getHeaders function
+          headers: getHeaders(),
           body: JSON.stringify(form)
         });
 

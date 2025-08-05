@@ -1,10 +1,7 @@
-import User from '../models/user.model.js'; // CORRECTED: Import path now matches your filename
+import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-// @desc    Register new user
-// @route   POST /api/auth/register
-// @access  Public
 const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -57,9 +54,6 @@ const registerUser = async (req, res) => {
     }
 };
 
-// @desc    Authenticate user & get token
-// @route   POST /api/auth/login
-// @access  Public
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 

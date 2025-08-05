@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react"; // Import useCallback
+import { useEffect, useState, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import CreatePage from "./pages/CreatePage";
 import HomePage from "./pages/HomePage";
@@ -28,21 +28,19 @@ function App() {
     }
   }, []);
 
-  // Use useCallback to make handleLogin a stable function
   const handleLogin = useCallback((userObj, userToken) => {
     setUser(userObj);
     setToken(userToken);
     localStorage.setItem('userToken', userToken);
     localStorage.setItem('userInfo', JSON.stringify(userObj));
-  }, []); // Empty dependency array means this function is created only once
+  }, []);
 
-  // Use useCallback to make handleLogout a stable function
   const handleLogout = useCallback(() => {
     setUser(null);
     setToken(null);
     localStorage.removeItem('userToken');
     localStorage.removeItem('userInfo');
-  }, []); // Empty dependency array means this function is created only once
+  }, []);
 
   return (
     <div className="app-container">

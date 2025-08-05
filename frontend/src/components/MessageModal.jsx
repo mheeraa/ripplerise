@@ -5,7 +5,7 @@ const MessageModal = ({ message, type, onClose, duration = 3000 }) => {
     const timer = setTimeout(() => {
       onClose();
     }, duration);
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    return () => clearTimeout(timer);
   }, [duration, onClose]);
 
   const modalTypeClass = type === 'error' ? 'message-error' : 'message-success';
@@ -14,10 +14,6 @@ const MessageModal = ({ message, type, onClose, duration = 3000 }) => {
     <div className="modal-overlay">
       <div className={`modal ${modalTypeClass}`}>
         <p>{message}</p>
-        {/* Optional: Add a dismiss button if you want user to manually close */}
-        {/* <button onClick={onClose} className="btn btn-secondary" style={{ marginTop: 'var(--spacing-md)' }}>
-          Dismiss
-        </button> */}
       </div>
     </div>
   );

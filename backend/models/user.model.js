@@ -23,7 +23,6 @@ const UserSchema = new mongoose.Schema({
         minlength: [6, 'Password must be at least 6 characters long'],
         select: false
     },
-    // NEW: Profile fields
     bio: {
         type: String,
         maxlength: [500, 'Bio cannot be more than 500 characters']
@@ -43,7 +42,6 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-// Middleware to hash password before saving
 UserSchema.pre('save', async function(next) {
     if (!this.isModified('password')) {
         next();
@@ -53,7 +51,6 @@ UserSchema.pre('save', async function(next) {
     next();
 });
 
-// Method to compare entered password with hashed password
 UserSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };

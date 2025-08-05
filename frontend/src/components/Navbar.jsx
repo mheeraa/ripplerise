@@ -22,14 +22,12 @@ const Navbar = ({ user, onLogout }) => {
       </div>
 
       <div className={`nav-right ${menuOpen ? "open" : ""}`}>
-        {/* The Home link is always visible */}
         <Link to="/" onClick={() => setMenuOpen(false)}>
           <FaHome style={{ marginRight: "6px" }} />
           Home
         </Link>
         {isLoggedIn ? (
           <>
-            {/* Re-ordered links for logged-in users */}
             <Link to="/create" onClick={() => setMenuOpen(false)}>
               <FaPlus style={{ marginRight: "6px" }} />
               Create
@@ -38,13 +36,10 @@ const Navbar = ({ user, onLogout }) => {
               <FaUser style={{ marginRight: "6px" }} />
               Profile
             </Link>
-            {/* The Logout button */}
             <button onClick={handleLogout} className="btn btn-secondary">Logout</button> 
-            {/* The username display has been removed */}
           </>
         ) : (
           <>
-            {/* Links for logged-out users */}
             <Link to="/login" onClick={() => setMenuOpen(false)}>
               Login
             </Link>
@@ -54,7 +49,6 @@ const Navbar = ({ user, onLogout }) => {
           </>
         )}
       </div>
-
       <div className="hamburger" onClick={toggleMenu}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>

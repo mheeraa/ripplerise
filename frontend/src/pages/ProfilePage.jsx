@@ -72,7 +72,6 @@ function ProfilePage({ user, onLogin }) {
 
             const data = await res.json();
             if (res.ok) {
-                // FIXED: Set the success message here
                 setMessage(data.message || 'Profile updated successfully!');
                 setIsError(false);
                 onLogin(data.data, token);
@@ -89,7 +88,6 @@ function ProfilePage({ user, onLogin }) {
 
     return (
         <div className="create-page-content">
-            {/* FIXED: Conditionally render the message modal at the top of the component */}
             {message && (
                 <MessageModal
                     message={message}

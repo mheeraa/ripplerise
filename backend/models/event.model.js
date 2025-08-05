@@ -38,7 +38,7 @@ const eventSchema = new mongoose.Schema({
         default: []
     },
 }, {
-    timestamps: true // createdAt, updatedAt
+    timestamps: true
 });
 
 const Event = mongoose.model('Event', eventSchema)
