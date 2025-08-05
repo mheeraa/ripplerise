@@ -26,7 +26,7 @@ function HomePage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("/api/events");
+        const res = await fetch(import.meta.env.VITE_API_URL + "/api/events");
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -62,7 +62,7 @@ function HomePage() {
     if (!eventToDeleteId) return;
 
     try {
-      const res = await fetch(`/api/events/${eventToDeleteId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events/${eventToDeleteId}`, {
         method: "DELETE",
         headers: getHeaders()
       });
@@ -98,7 +98,7 @@ function HomePage() {
     setMessage(null);
     setIsError(false);
     try {
-      const res = await fetch(`/api/events/${editingEvent._id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events/${editingEvent._id}`, {
         method: "PUT",
         headers: getHeaders(),
         body: JSON.stringify(editingEvent),
@@ -133,7 +133,7 @@ function HomePage() {
     setIsError(false);
 
     try {
-      const res = await fetch(`/api/events/${id}/rsvp`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events/${id}/rsvp`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
