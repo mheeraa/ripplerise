@@ -1,8 +1,5 @@
 # RippleRise: A Community Event Platform
 
-## Description
-Developed a full-stack MERN application with a modern, responsive UI to enable community event management. Implemented a secure user authentication system using JWTs and bcryptjs, alongside comprehensive CRUD functionality for events.
-
 ## Live Demo
 Check out the live application here: [https://ripplerise.onrender.com](https://ripplerise.onrender.com)
 
